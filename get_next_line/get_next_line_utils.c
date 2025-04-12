@@ -16,7 +16,7 @@ size_t	ft_gnl_strlen(const char *s)
 	size_t	len;
 
 	len = 0;
-	while (s && s[len] && s[len] != '\n')
+	while (s && s[len])
 		len++;
 	return (len);
 }
