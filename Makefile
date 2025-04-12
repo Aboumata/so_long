@@ -1,23 +1,20 @@
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
+NAME = so_long
 
-SRCS = parsing_game.c so_long_utils.c
-
+SRCS = main.c map_parsing.c map_validation.c utils.c get_next_line.c get_next_line_utils.c
 OBJS = $(SRCS:.c=.o)
 
-NAME = so_long
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	${CC} ${CFLAGS} ${OBJS} -o ${NAME}
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean:
-	rm -rf ${OBJS}
+	rm -f $(OBJS)
 
 fclean: clean
-	rm -rf ${NAME}
+	rm -f $(NAME)
 
-re : fclean all
-
-.PHONY: all clean fclean re
+re: fclean all
