@@ -1,6 +1,6 @@
 NAME = so_long
 
-SRCS = main.c map_parsing.c map_validation.c utils.c get_next_line.c get_next_line_utils.c
+SRCS = main.c map_parsing.c map_validating.c utils.c get_next_line.c get_next_line_utils.c
 OBJS = $(SRCS:.c=.o)
 
 CC = cc
