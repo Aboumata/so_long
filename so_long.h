@@ -38,8 +38,8 @@ int		read_map(char *file, t_game *game);
 int		validate_map(t_game *game);
 void	free_map(char **map);
 void	print_error(char *msg);
-size_t	ft_strlen(const char *str);
-char	*ft_strdup(const char *s1);
+size_t	    ft_strlen(const char *str);
+char	*ft_strdup(const char *src);
 char	*get_next_line(int fd);
 char	**ft_split(char const *s, char c);
 

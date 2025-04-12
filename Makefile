@@ -2,7 +2,7 @@ CC			= cc
 CFLAGS		= -Wall -Wextra -Werror
 
 SRCS		= map_parsing.c \
-			  map_validation.c \
+			  map_validating.c \
 			  game.c \
 			  so_long_utils.c \
 			  get_next_line/get_next_line.c \

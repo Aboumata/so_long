@@ -30,37 +30,3 @@ void	free_map(char **map)
         free(map[i++]);
     free(map);
 }
-
-size_t	ft_strlen(const char *s)
-{
-    size_t	i;
-
-    i = 0;
-    while (s[i] != '\0')
-    {
-        i++;
-    }
-    return (i);
-}
-
-char	*ft_strdup(const char *src)
-{
-    int		i;
-    char	*ptr;
-    size_t	len_src;
-
-    len_src = ft_strlen(src);
-    ptr = (char *)malloc(len_src + 1);
-    if (ptr == NULL)
-    {
-        return (NULL);
-    }
-    i = 0;
-    while (src[i] != '\0')
-    {
-        ptr[i] = src[i];
-        i++;
-    }
-    ptr[i] = '\0';
-    return (ptr);
-}
