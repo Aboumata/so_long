@@ -1,8 +1,7 @@
 CC			= cc
 CFLAGS		= -Wall -Wextra -Werror
 
-SRCS		= main.c \
-			  map_parsing.c \
+SRCS		= map_parsing.c \
 			  map_validation.c \
 			  game.c \
 			  so_long_utils.c \
