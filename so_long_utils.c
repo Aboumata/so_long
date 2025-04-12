@@ -12,6 +12,25 @@
 
 #include "so_long.h"
 
+void	print_error(char *msg)
+{
+    write(2, "Error\n", 6);
+    while (*msg)
+        write(2, msg++, 1);
+    write(2, "\n", 1);
+    exit(1);
+}
+
+void	free_map(char **map)
+{
+    int	i;
+
+    i = 0;
+    while (map[i])
+        free(map[i++]);
+    free(map);
+}
+
 size_t	ft_strlen(const char *s)
 {
     size_t	i;
