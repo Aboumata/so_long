@@ -1,10 +1,17 @@
-NAME = so_long
+CC			= cc
+CFLAGS		= -Wall -Wextra -Werror
 
-SRCS = main.c map_parsing.c map_validating.c utils.c get_next_line.c get_next_line_utils.c
+SRCS		= main.c \
+			  map_parsing.c \
+			  map_validation.c \
+			  game.c \
+			  so_long_utils.c \
+			  get_next_line/get_next_line.c \
+			  get_next_line/get_next_line_utils.c
+
 OBJS = $(SRCS:.c=.o)
 
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
+NAME = so_long
 
 all: $(NAME)
 
@@ -18,3 +25,5 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re
