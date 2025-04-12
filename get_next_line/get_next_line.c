@@ -34,7 +34,7 @@ char	*read_lines(int fd, char *buf, char **backup)
 			return (NULL);
 		buf[read_line] = '\0';
 		if (*backup == NULL)
-			*backup = ft_strdup("");
+			*backup = ft_gnl_strdup("");
 		if (*backup == NULL)
 			return (NULL);
 		char_temp = *backup;
@@ -60,7 +60,7 @@ char	*extract(char *line)
 		i++;
 	if (line[i] == '\0')
 		return (NULL);
-	backup = ft_substr(line, i + 1, ft_strlen(line) - i);
+	backup = ft_substr(line, i + 1, ft_gnl_strlen(line) - i);
 	if (backup == NULL)
 		return (NULL);
 	if (*backup == '\0')

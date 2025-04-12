@@ -11,12 +11,12 @@
 /* ************************************************************************** */
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *s)
+size_t	ft_gnl_strlen(const char *s)
 {
 	size_t	len;
 
 	len = 0;
-	while (s && s[len])
+	while (s && s[len] && s[len] != '\n')
 		len++;
 	return (len);
 }
@@ -31,9 +31,9 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	len1 = 0;
 	len2 = 0;
 	if (s1)
-		len1 = ft_strlen(s1);
+		len1 = ft_gnl_strlen(s1);
 	if (s2)
-		len2 = ft_strlen(s2);
+		len2 = ft_gnl_strlen(s2);
 	result = (char *)malloc((len1 + len2 + 1) * sizeof(char));
 	if (result == NULL)
 		return (NULL);
@@ -57,7 +57,7 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-char	*ft_strdup(const char *src)
+char	*ft_gnl_strdup(const char *src)
 {
 	int		i;
 	char	*ptr;
@@ -65,7 +65,7 @@ char	*ft_strdup(const char *src)
 
 	if (!src)
 		return (NULL);
-	len_src = ft_strlen(src);
+	len_src = ft_gnl_strlen(src);
 	ptr = (char *)malloc(len_src + 1);
 	if (ptr == NULL)
 		return (NULL);
@@ -87,9 +87,9 @@ char	*ft_substr(const char *src, size_t start, size_t len)
 
 	if (src == NULL)
 		return (NULL);
-	len_src = ft_strlen(src);
+	len_src = ft_gnl_strlen(src);
 	if (start >= len_src)
-		return (ft_strdup(""));
+		return (ft_gnl_strdup(""));
 	if (start + len > len_src)
 		len = len_src - start;
 	result = (char *)malloc(len + 1);

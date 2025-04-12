@@ -23,10 +23,10 @@
 # endif
 
 char	*get_next_line(int fd);
-size_t	ft_strlen(const char *s);
+size_t	ft_gnl_strlen(const char *s);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strchr(const char *string, int c);
 char	*ft_substr(const char *src, size_t start, size_t len);
-char	*ft_strdup(const char *src);
+char	*ft_gnl_strdup(const char *src);
 
 #endif

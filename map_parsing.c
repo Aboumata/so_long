@@ -35,8 +35,7 @@ static int	count_lines(char *file)
 
 int	read_map(char *file, t_game *game)
 {
-    int		fd;
-    int		i;
+    int		(fd), i;
     char	*line;
 
     game->height = count_lines(file);
@@ -54,6 +53,9 @@ int	read_map(char *file, t_game *game)
         line = get_next_line(fd);
         if (!line)
             break ;
+        char *newline = ft_strchr(line, '\n');
+        if (newline)
+            *newline = '\0';
         game->map[i++] = line;
     }
     game->map[i] = NULL;

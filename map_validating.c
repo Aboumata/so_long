@@ -17,11 +17,11 @@ static int	is_rectangular(t_game *game)
     int	i;
     int	width;
 
-    width = (int)ft_strlen(game->map[0]);
+    width = ft_strlen(game->map[0]);
     i = 1;
     while (game->map[i])
     {
-        if ((int)ft_strlen(game->map[i]) != width)
+        if (ft_strlen(game->map[i]) != width)
             return (0);
         i++;
     }
