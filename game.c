@@ -20,8 +20,12 @@ int	main(int argc, char **argv)
         print_error("Usage: ./so_long <map.ber>");
     if (!read_map(argv[1], &game))
         print_error("Failed to read map.");
-    if (!validate_map(&game))
-        print_error("Invalid map.");
+
+    game.player_count = 0;
+    game.exit_count = 0;
+    game.collectible_count = 0;
+
+    validate_map(&game);
     write(1, "Map is valid ✅\n", 16);
     free_map(game.map);
     return (0);

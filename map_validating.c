@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include <stdio.h> // for debug printf
 
 static int	is_rectangular(t_game *game)
 {
@@ -35,28 +36,35 @@ static int	is_surrounded(t_game *game)
 
     i = 0;
     while (i < game->width)
-        if (game->map[0][i] != WALL || game->map[game->height - 1][i++] != WALL)
+    {
+        if (game->map[0][i] != WALL || game->map[game->height - 1][i] != WALL)
             return (0);
+        i++;
+    }
     i = 0;
     while (i < game->height)
+    {
         if (game->map[i][0] != WALL || game->map[i][game->width - 1] != WALL)
             return (0);
-        else
-            i++;
+        i++;
+    }
     return (1);
 }
 
 static int	check_contents(t_game *game)
 {
-    int	x, y;
+    int	x;
+    int	y;
 
-    y = -1;
-    while (++y < game->height)
+    y = 0;
+    while (y < game->height)
     {
-        x = -1;
-        while (++x < game->width)
+        x = 0;
+        while (x < game->width)
         {
             char c = game->map[y][x];
+            // Debug: Print each char to verify
+            printf("Checking: %c (%d)\n", c, c);
             if (c == PLAYER)
                 game->player_count++;
             else if (c == EXIT)
@@ -65,12 +73,16 @@ static int	check_contents(t_game *game)
                 game->collectible_count++;
             else if (c != WALL && c != FLOOR)
                 return (0);
+            x++;
         }
+        y++;
     }
-    return (game->player_count == 1 && game->exit_count >= 1 && game->collectible_count >= 1);
+    return (game->player_count == 1
+        && game->exit_count >= 1
+        && game->collectible_count >= 1);
 }
 
-int	validate_map(t_game *game)
+void	validate_map(t_game *game)
 {
     if (!is_rectangular(game))
         print_error("Map is not rectangular.");
@@ -78,5 +90,4 @@ int	validate_map(t_game *game)
         print_error("Map must be surrounded by walls.");
     if (!check_contents(game))
         print_error("Map must have 1P, ≥1E, ≥1C and valid characters.");
-    return (1);
 }

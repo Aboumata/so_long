@@ -35,7 +35,7 @@ typedef struct s_game
 }	t_game;
 
 int		read_map(char *file, t_game *game);
-int		validate_map(t_game *game);
+void	validate_map(t_game *game);
 void	free_map(char **map);
 void	print_error(char *msg);
 int	    ft_strlen(const char *str);
