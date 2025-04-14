@@ -43,10 +43,15 @@ int	ft_strlen(const char *s)
 
 char	*ft_strdup(const char *s1)
 {
-    int		len = ft_strlen(s1);
-    char	*res = malloc(len + 1);
-    int		i = 0;
+    int		len;
+    char	*res;
+    int		i;
 
+    if (!s1)
+        return (NULL);
+    i = 0;
+    len = ft_strlen(s1);
+    res = malloc(len + 1);
     if (!res)
         return (NULL);
     while (i < len)

@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdio.h>
+# include "minilibx-linux/mlx.h"
 
 # define WALL '1'
 # define FLOOR '0'
@@ -26,12 +27,21 @@
 
 typedef struct s_game
 {
+    void    *mlx;
+    void    *win;
     char	**map;
     int		width;
     int		height;
     int		player_count;
     int		exit_count;
     int		collectible_count;
+    int     title;
+    void    *img_wall;
+    void    *img_floor;
+    void    *img_player;
+    void    *img_exit;
+    void    *img_collectible;
+
 }	t_game;
 
 int		read_map(char *file, t_game *game);

@@ -1,5 +1,5 @@
 CC			= cc
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		= -Wall -Wextra -Werror -Iminilibx-linux
 
 SRCS		= map_parsing.c \
 			  map_validating.c \
@@ -8,14 +8,17 @@ SRCS		= map_parsing.c \
 			  get_next_line/get_next_line.c \
 			  get_next_line/get_next_line_utils.c
 
-OBJS = $(SRCS:.c=.o)
+OBJS		= $(SRCS:.c=.o)
 
-NAME = so_long
+NAME		= so_long
+
+MLX_DIR		= minilibx-linux
+MLX_LIB		= -L$(MLX_DIR) -lmlx -lXext -lX11
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(MLX_LIB)
 
 clean:
 	rm -f $(OBJS)
