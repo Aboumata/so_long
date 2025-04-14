@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include <stdio.h> // for debug printf
 
 static int	is_rectangular(t_game *game)
 {
@@ -63,8 +62,6 @@ static int	check_contents(t_game *game)
         while (x < game->width)
         {
             char c = game->map[y][x];
-            // Debug: Print each char to verify
-            printf("Checking: %c (%d)\n", c, c);
             if (c == PLAYER)
                 game->player_count++;
             else if (c == EXIT)
