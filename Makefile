@@ -5,6 +5,7 @@ SRCS		= map_parsing.c \
 			  map_validating.c \
 			  game.c \
 			  so_long_utils.c \
+			  free_memory.c \
 			  get_next_line/get_next_line.c \
 			  get_next_line/get_next_line_utils.c
 

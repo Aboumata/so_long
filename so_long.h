@@ -53,5 +53,6 @@ char	*ft_strdup(const char *src);
 char	*get_next_line(int fd);
 char	**ft_split(char const *s, char c);
 char	*ft_strchr(const char *string, int c);
+void	free_all(t_game *game);
 
 #endif

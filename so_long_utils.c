@@ -21,16 +21,6 @@ void	print_error(char *msg)
     exit(1);
 }
 
-void	free_map(char **map)
-{
-    int	i;
-
-    i = 0;
-    while (map[i])
-        free(map[i++]);
-    free(map);
-}
-
 int	ft_strlen(const char *s)
 {
     int	len;
