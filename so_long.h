@@ -41,6 +41,9 @@ typedef struct s_game
     void    *img_player;
     void    *img_exit;
     void    *img_collectible;
+    int     player_x;
+    int     player_y;
+    int     steps;
 
 }	t_game;
 
@@ -54,5 +57,7 @@ char	*get_next_line(int fd);
 char	**ft_split(char const *s, char c);
 char	*ft_strchr(const char *string, int c);
 void	free_all(t_game *game);
+void	move_player(t_game *game, int dx, int dy);
+void	giver_map(t_game *game);
 
 #endif
