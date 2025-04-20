@@ -49,7 +49,7 @@ typedef struct s_game
 
 int		read_map(char *file, t_game *game);
 void	validate_map(t_game *game);
-void	free_map(char **map);
+void	free_map(char **map, int height);
 void	print_error(char *msg);
 int	    ft_strlen(const char *str);
 char	*ft_strdup(const char *src);
@@ -59,5 +59,6 @@ char	*ft_strchr(const char *string, int c);
 void	free_all(t_game *game);
 void	move_player(t_game *game, int dx, int dy);
 void	giver_map(t_game *game);
+void	exit_with_error(t_game *game, char *message);
 
 #endif

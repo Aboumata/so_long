@@ -12,14 +12,14 @@
 
 #include "so_long.h"
 
-void	free_map(char **map)
+void	free_map(char **map, int height)
 {
     int	i;
 
     if (!map)
-        return;
+        return ;
     i = 0;
-    while (map[i])
+    while (i < height)
         free(map[i++]);
     free(map);
 }
@@ -41,7 +41,6 @@ void	free_all(t_game *game)
     if (game->mlx)
     {
         mlx_destroy_display(game->mlx);
-        free(game->mlx);
     }
-    free_map(game->map);
+    free_map(game->map, game->height);
 }

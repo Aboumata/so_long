@@ -12,15 +12,6 @@
 
 #include "so_long.h"
 
-void	print_error(char *msg)
-{
-    write(2, "Error\n", 6);
-    while (*msg)
-        write(2, msg++, 1);
-    write(2, "\n", 1);
-    exit(1);
-}
-
 int	ft_strlen(const char *s)
 {
     int	len;
@@ -51,4 +42,13 @@ char	*ft_strdup(const char *s1)
     }
     res[i] = 0;
     return (res);
+}
+
+void	exit_with_error(t_game *game, char *message)
+{
+    write(2, "Error\n", 7);
+    write(2, message, ft_strlen(message));
+    write(2, "\n", 1);
+    free_all(game);
+    exit(1);
 }

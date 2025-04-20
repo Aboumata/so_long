@@ -101,6 +101,7 @@ int	handle_destroy(t_game *game)
 {
 	free_all(game);
 	exit(0);
+	return (0);
 }
 
 static void	find_player_position(t_game *game)
@@ -131,23 +132,23 @@ int	main(int argc, char **argv)
 	t_game	game;
 
 	if (argc != 2)
-		print_error("Usage: ./so_long <map.ber>");
+		exit_with_error(&game , "Usage: ./so_long <map.ber>");
 	if (!read_map(argv[1], &game))
-		print_error("Failed to read map.");
+		exit_with_error(&game, "Failed to read map.");
 
 	game.player_count = 0;
 	game.exit_count = 0;
 	game.collectible_count = 0;
 	validate_map(&game);
+	game.steps = 0;
 	find_player_position(&game);
 
 	game.mlx = mlx_init();
 	if (!game.mlx)
-		print_error("Failed to initialize MLX.");
+		exit_with_error(&game, "Failed to initialize MLX.");
 	game.win = mlx_new_window(game.mlx, game.width * 64, game.height * 64, "so_long");
 	if (!game.win)
-		print_error("Failed to create window.");
-
+		exit_with_error(&game, "Failed to create window.");
 	loading_images(&game);
 	check_images(&game);
 	giver_map(&game);

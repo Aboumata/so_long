@@ -82,9 +82,9 @@ static int	check_contents(t_game *game)
 void	validate_map(t_game *game)
 {
     if (!is_rectangular(game))
-        print_error("Map is not rectangular.");
+        exit_with_error(game, "Map is not rectangular.");
     if (!is_surrounded(game))
-        print_error("Map must be surrounded by walls.");
+        exit_with_error(game, "Map must be surrounded by walls.");
     if (!check_contents(game))
-        print_error("Map must have 1P, ≥1E, ≥1C and valid characters.");
+        exit_with_error(game, "Map must have 1P, ≥1E, ≥1C and valid characters.");
 }
