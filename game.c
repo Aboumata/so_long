@@ -86,13 +86,13 @@ int	handle_keypress(int keycode, t_game *game)
 {
 	if (keycode == 65307)
 		exit(0);
-	else if (keycode == 'w' || keycode == 119)
+	else if (keycode == 65362)
 		move_player(game, 0, -1);
-	else if (keycode == 's' || keycode == 115)
+	else if (keycode == 65364)
 		move_player(game, 0, 1);
-	else if (keycode == 'a' || keycode == 97)
+	else if (keycode == 65361)
 		move_player(game, -1, 0);
-	else if (keycode == 'd' || keycode == 100)
+	else if (keycode == 65363)
 		move_player(game, 1, 0);
 	return (0);
 }
